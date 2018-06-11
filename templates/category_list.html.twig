@@ -1,0 +1,22 @@
+{% extends "master.html.twig" %}
+
+
+{% block mainContent %}
+<h1>--- CATEGORY LIST ---</h1>
+    <table width='40%' align="center">
+            <tr>
+                <td class="tableTitle">Category ID:</td>
+                <td class="tableTitle">Category:</td>
+            </tr>  
+        {% for category in categoryList %}
+            <tr>
+                <td>{{ category.categoryID }}</td>
+                <td>{{ category.name }}</td>
+            </tr>  
+        {% else %}
+          No categories.
+        {% endfor %}
+    </table>
+{% endblock %}    
+      
+      

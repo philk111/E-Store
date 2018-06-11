@@ -1,0 +1,32 @@
+ {% extends "master.html.twig" %}
+
+ {% block mainContent %}
+
+     <h1>--- DELETE PRODUCT ---</h1><br><br>
+<form method="post">
+<table align="center" width='50%'>
+        <tr>
+            <td class="tableTitle">Product ID:</td>
+            <td class="tableTitle">Category ID:</td>
+            <td class="tableTitle">Product name:</td>
+            <td class="tableTitle">Description:</td>
+            <td class="tableTitle">Price:</td>
+            <td class="tableTitle">Image path:</td>
+        </tr>  
+        <tr>
+            <td>{{productID }}</td>
+            <td>{{categoryID }}</td>
+            <td>{{name}} </td>
+            <td>{{description}} </td>
+            <td>${{price}} </td>
+            <td>{{image_path}} </td>
+        </tr>  
+</table><br><br>
+    Product ID: <input type="number" name="productID" value="{{productID}}" readonly><br>
+    <input type="submit" formmethod="post" value="Delete product">
+</form>
+    <br><br>
+    Enter ID of product in URL to switch between products.
+{% endblock %}    
+  
+    

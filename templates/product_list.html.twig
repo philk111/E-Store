@@ -1,0 +1,25 @@
+{% extends "master.html.twig" %}
+
+{% block mainContent %} 
+    <h1>--- PRODUCT LIST ---</h1>
+    <table id="table" width='100%'>
+          <tr>
+            <td class="tableTitle">Product ID:</td>
+            <td class="tableTitle">Category ID:</td>
+            <td class="tableTitle">Product name:</td>
+            <td class="tableTitle">Description:</td>
+            <td class="tableTitle">Price:</td>
+          </tr>  
+      {% for product in productList %}
+          <tr>
+              <td>{{ product.productID }}</td>
+              <td>{{ product.categoryID }} </td>
+              <td>{{ product.name }} </td>
+              <td>{{ product.description }} </td>
+              <td>${{ product.price }} </td>
+          </tr>  
+      {% else %}
+        No categories.
+      {% endfor %}
+    </table>
+{% endblock %}

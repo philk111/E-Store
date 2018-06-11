@@ -1,0 +1,22 @@
+{% extends "master.html.twig" %}
+
+
+{% block mainContent %}
+
+<h1> --- {{ name }} ---</h1>
+   
+            {% for product in categoryProducts %}     
+           <div class="categoryProduct">
+           <p class="productTitle"><span class="price">{{product.productID}}.</span>{{ product.name }}: </p>
+           <a href ="/web/admin.php/product/{{product.productID}}"> <img src="{{product.image_path}}" align="center" alt="Product Image" height="450" width="800" hspace="40"></a><br><br>
+           
+           <p>{{ product.description }} </p> 
+           only<span class="price1">${{ product.price }} </span>  
+           
+            </div>  
+            {% endfor %}
+            
+     
+{% endblock %}    
+      
+      

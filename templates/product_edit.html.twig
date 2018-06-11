@@ -1,0 +1,53 @@
+{% extends "master.html.twig" %}
+
+{% block mainContent %}
+    <h1>--- PRODUCT EDIT ---</h1>
+    <p>{{name}} </p>
+    <img src="{{image_path}}" alt="product" height="350" width="600" hspace="60"><br><br><br>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="inputFields">
+            Product name:<input type="text" name="name" value="{{v.name}}">
+            Category:
+            <select name="categoryID">
+                {% for category in categoryList %}
+                    <option>{{ category.categoryID }}. {{ category.name }}</option>
+                {% endfor %}      
+            </select>
+            <br><br>
+            Description: <textarea rows="4" cols="50" name="description">{{v.description}}</textarea><br><br>
+            Price:<input type="number" step="0.01" name="price" value="{{v.price}}"><br><br>
+            Select product image to upload: <input type="file" name="imageUpload"><br>
+            <input type="submit" formmethod="post" value="Update product">
+            </form></div>    
+        <br><br>
+        <table width='90%'>
+            <tr>
+                <td class="tableTitle">Product ID:</td>
+                <td class="tableTitle">Category ID:</td>
+                <td class="tableTitle">Product name:</td>
+                <td class="tableTitle">Description:</td>
+                <td class="tableTitle">Price:</td>
+                <td class="tableTitle">Image path:</td>
+            </tr>  
+            <tr>
+                <td>{{productID}}</td>
+                <td>{{categoryID}}</td>
+                <td>{{name}} </td>
+                <td>{{description}} </td>
+                <td>${{price}} </td>
+                <td>{{image_path}} </td>
+            </tr>  
+        </table><br><br>
+
+        Enter ID of product in URL to switch between products.
+
+        {% if errorList %}
+            <ul>
+                {% for error in errorList %}
+                    <li> {{error}}</li>
+                    {%endfor %}
+            </ul>
+        {% endif %}
+
+    {% endblock %}

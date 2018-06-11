@@ -1,0 +1,12 @@
+{% extends "master.html.twig" %}
+
+{% block mainContent %}
+    <h1>--- CATEGORY EDIT ---</h1>
+<form method="post">
+    Category Name: <input type="text" name="name" value="{{name}}">
+    Category ID: <input type="text" name="categoryID" value="{{categoryID}}" readonly>
+    <input type="submit" value="Update Category">
+</form>
+    <br><br><br>
+    Enter ID of category in URL to switch between categories.
+{% endblock %}    

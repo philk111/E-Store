@@ -1,0 +1,43 @@
+{% extends "master.html.twig" %}
+
+{% block mainContent %}
+    <h1>Order details</h1>
+    
+<form method="post"><br>
+    <div style="color:#0085FF;">
+        Name: <input type="text" name="firstName" value="{{v.firstName}}"><br>
+        Last-Name: <input type="text" name="lastName" value="{{v.lastName}}"><br>
+        Address: <input type="text" name="address" value="{{v.address}}"><br>
+        Postal Code: <input type="text" name="postCode" value="{{v.postCode}}"><br>
+        Country: <input type="text" name="country" value="{{v.country}}"><br>
+        Province or State: <input type="text" name="province" value="{{v.province}}"><br>
+        Email: <input type="text" name="email" value="{{v.email}}"><br>
+        Phone: <input type="text" name="phone" value="{{v.phone}}"><br>
+        Credit card #: <input type="text" name="ccNumber" value="{{v.ccNumber}}"><br>
+        Credit card expiry: <input type="text" name="ccExpiry" value="{{v.ccExpiry}}"><br>
+        Credit card CVV: <input type="text" name="ccCVV"><br>
+        Total before taxes:<span class="price1">${{totalBeforeTaxes}}</span> <br>
+        Delivery: <span class="price1">$0</span> <span style="color:white">today only!!</span><br>
+        Taxes:<span class="price1">${{taxes}}</span> <br>
+        <span style="color:#0085FF;">Total:</span><span class="price1">${{totalAfterTaxes}}</span><br>
+        <input type="submit" value="Confirm Order">
+    </div>
+</form> 
+    
+    
+    
+    
+    
+{% if errorList %}
+<ul>
+{% for error in errorList %}
+    <li> {{error}}</li>
+{%endfor %}
+</ul>
+{% endif %}
+    
+ 
+{% endblock %}  
+        
+ 
+     

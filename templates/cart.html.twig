@@ -1,0 +1,56 @@
+{% extends "master.html.twig" %}
+{% block headExtra %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.100').change(function () {
+                $.ajax("/web/admin.php/ajax/cart/add/product/" + $(this).attr('productID') + "/quantity/" + $(this).val())
+                        .done(function () {
+                            alert("PRODUCT EDITED SUCCESSFULLY!!!!!");
+                        })
+                        .fail(function () {
+                            alert("PRODUCT EDIT FAIL.");
+                        });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block mainContent %}
+
+    <h1> --- CART ---</h1>
+
+    {% if errorList %}
+        <ul>
+            {% for error in errorList %}
+                <li> {{error}}</li>
+                {%endfor %}
+        </ul>
+    {% else %}
+
+        {% for product in cartInfo %}     
+            <div class="categoryProduct">
+                <span class="price">{{ product.productID }}.</span>{{ product.name }}<br> 
+                <img src="{{ product.image_path}}" height="200" width="300"><br>
+                Description: <p>{{ product.description }}: </p>
+                <p class="price1">${{ product.price}} </p>
+                <form method="post">
+                    Edit Quantity: <select productID="{{ product.productID }}" name="quantity" class="100"><option selected>{{product.quantity}}</option></select><br>
+                    <input type="hidden" name="productID" value="{{ product.productID }}">
+                    <input type="hidden" name="price" id="price" value="${{ product.price }}">
+                    <input type="submit" name="delete" value="delete"><br><br>
+                </form>
+            </div>  
+        {% endfor %}
+
+        <a href ="/web/admin.php/order">>>> CHECK OUT <<<</a>
+
+
+    {% endif %}
+
+
+
+
+
+{% endblock %}    
+

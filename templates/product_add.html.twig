@@ -1,0 +1,31 @@
+{% extends "master.html.twig" %}
+
+{% block mainContent %}
+    <h1>ADD a Product</h1>
+    <form method="post" enctype="multipart/form-data"><br>
+        Name: <input type="text" name="name" value="{{v.name}}"><br>
+        Description: <textarea name="description">{{v.description}}</textarea><br>
+        Price: <input type="number" step="0.01" name="price" value="{{v.price}}"><br>
+        Category:
+        <select name="categoryID">
+            {% for category in categoryList %}
+                <option>{{ category.categoryID }}. {{ category.name }}</option>
+            {% endfor %}      
+        </select><br>
+        Select product image to upload: <input type="file" name="imageUpload"><br>
+        <input type="submit" value="Add product" name="submit">
+
+        {% if errorList %}
+            <ul>
+                {% for error in errorList %}
+                    <li> {{error}}</li>
+                    {%endfor %}
+            </ul>
+        {% endif %}
+
+    </form>
+
+{% endblock %}
+
+
+

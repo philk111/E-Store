@@ -1,0 +1,32 @@
+{% extends "master.html.twig" %}
+
+{% block mainContent %}
+
+    <h1>--- CATEGORY DELETE ---</h1><br><br>  
+
+    <form method="post">
+        <table align="center" width='40%'>
+            <tr>
+                <td class="tableTitle">Category ID:</td>
+                <td class="tableTitle">Category name:</td>
+            </tr>  
+            <tr>
+                <td>{{categoryID}}</td>
+                <td>{{name}}</td>
+            </tr>  
+        </table><br>
+
+        Category ID: <input type="number" name="categoryID" value="{{categoryID}}" readonly><br>
+        <input type="submit" formmethod="post" value="DELETE CATEGORY"><br><br><br>
+
+        Enter ID of category in URL to switch between categories.
+
+        {% if errorList %}
+            <ul>
+                {% for error in errorList %}
+                    <li> {{error}}</li>
+                    {%endfor %}
+            </ul>
+        {% endif %} 
+    </form>
+{% endblock %}   

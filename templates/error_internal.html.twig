@@ -1,0 +1,19 @@
+{% extends "master.html.twig" %}
+
+{% block title %}Internal error{% endblock %}
+
+
+{% block mainContent %}
+    <h1>ERROR</h1>
+
+    {% if errorList %}
+        <ul>
+            {% for error in errorList %}
+                <li> {{error}}</li>
+                {%endfor %}
+        </ul>
+    {% endif %}
+
+    <p>Navigate the Menu to continue</p>
+
+{% endblock %}
